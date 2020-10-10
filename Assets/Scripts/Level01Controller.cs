@@ -54,11 +54,16 @@ public class Level01Controller : MonoBehaviour
         //makes pop up menu visible
         _MenuPanel.SetActive(true);
         //TODO unlock and unhide cursor
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
     public void Resume()
     {
         //makes pop up menu disappear
         _MenuPanel.SetActive(false);
         //TODO lock and hide cursor
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        Debug.Log("cursor should be locked");
     }
 }
