@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
     public float jumpHeight = 3f;
     //Speed of player
     public float speed = 12f;
+    public float sprintMultiplier = 2.25f;
+    float startSpeed;
     //gravitational velocity
     Vector3 gVelocity;
     //gravity
@@ -22,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        startSpeed = speed;
     }
 
     // Update is called once per frame
@@ -39,6 +41,13 @@ public class PlayerMovement : MonoBehaviour
         float z = Input.GetAxis("Vertical");
         //applies movement to vector 3
         Vector3 move = transform.right * x + transform.forward * z;
+        //sets start speed to original
+        speed = startSpeed;
+        //checks for sprinting and applies speed boost if shift is pressed
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            speed = speed * sprintMultiplier;
+        }
         //moves the player character according to the vector 3
         controller.Move(move * speed * Time.deltaTime);
 

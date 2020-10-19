@@ -8,7 +8,7 @@ public class Level01Controller : MonoBehaviour
 {
     [SerializeField] Text _currentScoreTextView;
     [SerializeField] GameObject _MenuPanel;
-
+    [SerializeField] GameObject _Crosshair;
     int _currentScore;
     string HighScore = "HighScore";
     void Update()
@@ -56,6 +56,7 @@ public class Level01Controller : MonoBehaviour
         //TODO unlock and unhide cursor
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        _Crosshair.SetActive(false);
     }
     public void Resume()
     {
@@ -65,5 +66,6 @@ public class Level01Controller : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         Debug.Log("cursor should be locked");
+        _Crosshair.SetActive(true);
     }
 }
