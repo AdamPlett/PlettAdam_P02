@@ -2,15 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
     public float PlayerHP = 100f;
     public GameObject Player;
+    public Slider slider;
     // Start is called before the first frame update
-    void Start()
+    
+    public void SetHealth()
     {
-        
+        slider.value = PlayerHP;
     }
 
     // Update is called once per frame
@@ -24,6 +27,7 @@ public class PlayerHealth : MonoBehaviour
     public void Damage(float damage)
     {
         PlayerHP -= damage;
+        SetHealth();
     }
     void Die()
     {
