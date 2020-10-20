@@ -33,6 +33,14 @@ public class PlayerHealth : MonoBehaviour
         PlayerHP -= damage;
         SetHealth();
     }
+    public void giveHealth(float addedHealth)
+    {
+        if (PlayerHP+addedHealth<100)
+        {
+            PlayerHP += addedHealth;
+            SetHealth();
+        }
+    }
     void Die()
     {
         StartCoroutine(DeathSequence());

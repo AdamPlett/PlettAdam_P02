@@ -22,18 +22,12 @@ public class Level01Controller : MonoBehaviour
         {
             Resume();
         }
-        //increase score
-        //TODO replace with real implementation later
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            IncreaseScore(5);
-        }
     }
     public void IncreaseScore(int ScoreIncrease)
     {
         //increase score
         _currentScore += ScoreIncrease;
-        //update socre display, so we can see the new scoer
+        //update score display, so we can see the new score
         _currentScoreTextView.text = "Score: " + _currentScore.ToString();
     }
     public void ExitLevel()
