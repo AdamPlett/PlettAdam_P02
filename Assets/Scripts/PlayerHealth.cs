@@ -9,8 +9,10 @@ public class PlayerHealth : MonoBehaviour
     public float PlayerHP = 100f;
     public GameObject Player;
     public Slider slider;
+    public AudioSource hit;
+    public AudioSource death;
     // Start is called before the first frame update
-    
+
     public void SetHealth()
     {
         slider.value = PlayerHP;
@@ -21,11 +23,13 @@ public class PlayerHealth : MonoBehaviour
     {
         if (PlayerHP <= 0 || Input.GetKeyDown(KeyCode.E))
         {
+            death.Play();
             Die();
         }
     }
     public void Damage(float damage)
     {
+        hit.Play();
         PlayerHP -= damage;
         SetHealth();
     }

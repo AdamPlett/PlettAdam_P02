@@ -4,7 +4,8 @@ public class Weapon : MonoBehaviour
 {
     public float damage = 10f;
     public ParticleSystem muzzleFlash;
-    public AudioSource SFX;
+    public AudioSource shootSound;
+    public AudioSource hitSound;
     //adds range to firing
     //public float range = 100f;
     public Camera fpsCam;
@@ -23,11 +24,18 @@ public class Weapon : MonoBehaviour
     void Shoot()
     {
         muzzleFlash.Play();
-        SFX.Play();
+        shootSound.Play();
         RaycastHit hit;
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit)) 
         {
             Debug.Log(hit.transform.name);
+
+            EnemyAI enemy = hit.transform.GetComponent<EnemyAI>();
+            if(enemy != null)
+            {
+                hitSound.Play();
+                enemy.TakeDamage(damage);
+            }
         }
     }
 }
