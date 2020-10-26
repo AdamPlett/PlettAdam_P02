@@ -35,7 +35,7 @@ public class PlayerHealth : MonoBehaviour
     }
     public void giveHealth(float addedHealth)
     {
-        if (PlayerHP+addedHealth<100)
+        if (PlayerHP+addedHealth<=100)
         {
             PlayerHP += addedHealth;
             SetHealth();

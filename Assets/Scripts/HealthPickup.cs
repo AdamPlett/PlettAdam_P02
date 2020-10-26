@@ -6,6 +6,10 @@ public class HealthPickup : MonoBehaviour
 {
     public float healthBack=10f;
     public AudioSource HPSFX;
+    public void Update()
+    {
+        transform.Rotate(new Vector3(0, 75, 0) * Time.deltaTime);
+    }
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Entered");
