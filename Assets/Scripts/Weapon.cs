@@ -10,7 +10,7 @@ public class Weapon : MonoBehaviour
     //adds range to firing
     //public float range = 100f;
     public Camera fpsCam;
-    public float fireRate = 4f;
+    public float fireRate = 5f;
     private float nextTimeToFire = 0f;
     Level01Controller controller;
 
