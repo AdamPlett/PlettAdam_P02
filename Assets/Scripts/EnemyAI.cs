@@ -11,6 +11,7 @@ public class EnemyAI : MonoBehaviour
 
     public float health;
     public AudioSource shootSound;
+    public ParticleSystem takeDamage;
 
     //patroling
     public Vector3 walkPoint;
@@ -96,6 +97,7 @@ public class EnemyAI : MonoBehaviour
     }
     public void TakeDamage(float damage)
     {
+        takeDamage.Play();
         health -= damage;
 
         if (health <= 0f) Invoke(nameof(DestroyEnemy), .25f);

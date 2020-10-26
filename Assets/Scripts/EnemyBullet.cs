@@ -19,7 +19,11 @@ public class EnemyBullet : MonoBehaviour
         if (collisions > 1)
         {
             hitSound.Play();
-            Destroy(gameObject);
+            Invoke(nameof(DestroyBullet), .25f);
         }
+    }
+    private void DestroyBullet()
+    {
+        Destroy(gameObject);
     }
 }

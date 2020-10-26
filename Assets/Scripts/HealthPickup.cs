@@ -6,6 +6,7 @@ public class HealthPickup : MonoBehaviour
 {
     public float healthBack=10f;
     public AudioSource HPSFX;
+    public ParticleSystem VFX;
     public void Update()
     {
         transform.Rotate(new Vector3(0, 75, 0) * Time.deltaTime);
@@ -16,6 +17,7 @@ public class HealthPickup : MonoBehaviour
         PlayerHealth playerHealth = other.gameObject.GetComponent<PlayerHealth>();
         if (playerHealth != null)
         {
+            VFX.Play();
             HPSFX.Play();
             playerHealth.giveHealth(healthBack);
             Debug.Log("Giving health");
