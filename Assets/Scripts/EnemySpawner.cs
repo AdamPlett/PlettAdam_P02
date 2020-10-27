@@ -6,6 +6,7 @@ public class EnemySpawner : MonoBehaviour
 {
     public GameObject Enemy;
     public float SpawnTime = 7.5f;
+    public AudioSource spawnSFX;
     private float SpawnTimer;
     private float randX, randZ;
     private Vector3 SpawnPoint;
@@ -23,6 +24,7 @@ public class EnemySpawner : MonoBehaviour
         SpawnTimer -= Time.deltaTime;
         if (SpawnTimer<=0)
         {
+            spawnSFX.Play();
             randX = Random.Range(-43.2f,37.8f);
             randZ = Random.Range(-35.98f, 47.55f);
             SpawnPoint = SpawnPoint + new Vector3(randX,0,randZ);
